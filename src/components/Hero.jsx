@@ -18,7 +18,6 @@ export default function Hero(){
           <a className="hover:underline" href="mailto:khushbukarki.18@gmail.com">khushbukarki.18@gmail.com</a>
           <a className="hover:underline" href="https://linkedin.com/in/khushbukarki" target="_blank" rel="noreferrer">LinkedIn</a>
           <a className="hover:underline" href="https://github.com/khushbukarki" target="_blank" rel="noreferrer">GitHub</a>
-          <a className="hover:underline" href="https://khushbukarki.github.io/Weather-Forecasting-Nz" target="_blank" rel="noreferrer">Weather App</a>
         </div>
       </div>
       <div className="flex justify-center md:justify-end">
