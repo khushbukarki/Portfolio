@@ -1,16 +1,54 @@
-# Khushbu Karki — React + Vite Portfolio (v2)
+# Portfolio
 
-Master's‑level interactive portfolio with About/Bio, CV links, and GitHub‑Pages‑safe paths.
+![GitHub repo size](https://img.shields.io/github/repo-size/khushbukarki/Portfolio)
+![GitHub contributors](https://img.shields.io/github/contributors/khushbukarki/Portfolio)
+![GitHub issues](https://img.shields.io/github/issues/khushbukarki/Portfolio)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/khushbukarki/Portfolio)
 
-## Local
-npm install
-npm run dev
+## Features
+- Feature 1: [Description]
+- Feature 2: [Description]
+- Feature 3: [Description]
 
-## Build
-npm run build
-npm run preview
+## Tech Stack
+- HTML
+- CSS
+- JavaScript
+- [Any other frameworks or libraries]
 
-## Deploy to GitHub Pages
-1) Push this repo to GitHub (e.g., kk-portfolio-react-v2).
-2) Create `.github/workflows/pages.yml` with the provided workflow.
-3) In Settings → Pages, set **Source: GitHub Actions**.
+## Quick Start Guide
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/khushbukarki/Portfolio.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd Portfolio
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the application:
+   ```bash
+   npm start
+   ```
+
+## Live Demo
+[Click here to see the live demo!](https://yourliveurl.com)
+
+## Contribution Guidelines
+1. Fork the repo
+2. Create a new branch for your feature:
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m 'Add some feature'
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. Open a pull request.
