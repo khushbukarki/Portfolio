@@ -1,26 +1,76 @@
-import React from 'react'
-const base = import.meta.env.BASE_URL || './'
+import { motion } from "framer-motion";
+import { useState } from "react";
 
-export default function Navbar({dark, setDark}){
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+    { name: "Contact", href: "#contact" }
+  ];
+
   return (
-    <header className="sticky top-0 z-50 backdrop-blur bg-white/70 dark:bg-slate-950/70 border-b border-slate-200/50 dark:border-slate-800">
-      <nav className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="#home" className="font-extrabold text-xl tracking-tight">KK<span className="text-indigo-600 dark:text-indigo-400">.</span></a>
-        <div className="hidden md:flex items-center gap-6 text-sm">
-          <a href="#projects" className="hover:text-indigo-600">Projects</a>
-          <a href="#skills" className="hover:text-indigo-600">Skills</a>
-          <a href="#experience" className="hover:text-indigo-600">Experience</a>
-          <a href="#education" className="hover:text-indigo-600">Education</a>
-          <a href="#certs" className="hover:text-indigo-600">Certifications</a>
-          <a href="#contact" className="hover:text-indigo-600">Contact</a>
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className="fixed top-0 w-full bg-black bg-opacity-95 backdrop-blur-md px-6 py-4 z-50 border-b border-gray-800"
+    >
+      <div className="max-w-6xl mx-auto flex justify-between items-center">
+        {/* Logo */}
+        <motion.h1
+          whileHover={{ scale: 1.05 }}
+          className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent cursor-pointer"
+        >
+          Khushbu
+        </motion.h1>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex gap-8 text-white">
+          {navLinks.map((link, idx) => (
+            <motion.a
+              key={idx}
+              href={link.href}
+              whileHover={{ scale: 1.1, color: "#60A5FA" }}
+              className="hover:text-blue-400 transition"
+            >
+              {link.name}
+            </motion.a>
+          ))}
         </div>
-        <div className="flex items-center gap-3">
-          <button onClick={()=>setDark(!dark)} className="rounded-xl px-3 py-2 border border-slate-300 dark:border-slate-700 text-xs hover:shadow">
-            {dark? 'Light':'Dark'} ⌘/
-          </button>
-          <a href={`${base}Khushbu_Karki_CV.pdf`} className="hidden md:inline-block rounded-xl px-3 py-2 text-xs bg-indigo-600 text-white hover:bg-indigo-700">Download CV</a>
-        </div>
-      </nav>
-    </header>
-  )
-}
+
+        {/* Mobile Menu Button */}
+        <motion.button
+          whileTap={{ scale: 0.9 }}
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-white text-2xl"
+        >
+          {isOpen ? "✕" : "☰"}
+        </motion.button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden bg-gray-900 mt-4 p-4 rounded-lg space-y-2"
+        >
+          {navLinks.map((link, idx) => (
+            <a
+              key={idx}
+              href={link.href}
+              className="block text-white hover:text-blue-400 py-2 px-4 rounded hover:bg-gray-800 transition"
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
+        </motion.div>
+      )}
+    </motion.nav>
+  );
+};
+
+export default Navbar;
